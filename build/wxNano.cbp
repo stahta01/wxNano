@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxNano" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="shared">
+				<Option output="bin/Debug/wxNano" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="$(#WX31_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add directory="shared" />
+					<Add directory="$(#WX31_64.lib)/gcc_dll$(WX_CFG)" />
+				</Linker>
+			</Target>
+			<Target title="static">
+				<Option output="bin/Release/wxNano" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="$(#WX31_64.lib)/gcc_lib$(WX_CFG)/msw$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add library="wxNano" />
+					<Add library="wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="wxpng" />
+					<Add library="wxzlib" />
+					<Add library="z" />
+					<Add library="rpcrt4" />
+					<Add library="oleaut32" />
+					<Add library="ole32" />
+					<Add library="uuid" />
+					<Add library="winspool" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="comctl32" />
+					<Add library="comdlg32" />
+					<Add library="advapi32" />
+					<Add library="wsock32" />
+					<Add library="gdi32" />
+					<Add library="oleacc" />
+					<Add library="shlwapi" />
+					<Add library="version" />
+					<Add library="uxtheme" />
+					<Add directory="static" />
+					<Add directory="$(#WX31_64.lib)/gcc_lib$(WX_CFG)" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="WX_SUFFIX" value="u" />
+				<Variable name="WX_TOOLKIT" value="msw" />
+				<Variable name="WX_VERSION" value="31" />
+			</Environment>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="shared;static;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-D_FILE_OFFSET_BITS=64" />
+			<Add option="-D__WXMSW__" />
+			<Add directory="../include" />
+			<Add directory="$(#WX31_64.include)" />
+		</Compiler>
+		<Linker>
+			<Add library="wxNano" />
+			<Add library="opencv_core" />
+			<Add library="opencv_imgcodecs" />
+		</Linker>
+		<Unit filename="../sample/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
