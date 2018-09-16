@@ -10,7 +10,7 @@ class MyEventLoop : public wxEventLoopBase
 { 
 };
 
-void main(int argc,char**argv)
+int main(int argc,char**argv)
 {
     
     int l1 = wxNano::GetNumber<int>();
